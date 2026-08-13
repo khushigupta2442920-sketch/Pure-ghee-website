@@ -67,7 +67,7 @@
     <div class="about-image">
         <img src="ghee.png" alt="ghee-photo">
     </div>
-</div>
+<div class="about-text">
 <h2>About Our Brand</h2>
 
 <p>
@@ -77,7 +77,8 @@ traditional methods. Every drop is rich in aroma,
 nutrition and purity.
 
 </p>
-
+</div>
+</div> 
 </section>
 
 <!-- ================= PRODUCTS ================= -->
@@ -94,7 +95,7 @@ nutrition and purity.
 
 <h3>500 ml Pure Ghee</h3>
 
-<h4>₹749</h4>
+<h4>₹700</h4>
 
 <div class="buttons">
 
@@ -103,12 +104,6 @@ nutrition and purity.
 <i class="fab fa-amazon"></i>
 
 Buy on Amazon
-
-</a>
-
-<a href="https://www.flipkart.com/" target="_blank" class="flipkart">
-
-Buy on Flipkart
 
 </a>
 
@@ -122,7 +117,7 @@ Buy on Flipkart
 
 <h3>1 Litre Pure Ghee</h3>
 
-<h4>₹1449</h4>
+<h4>₹1400</h4>
 
 <div class="buttons">
 
@@ -132,18 +127,112 @@ Buy on Amazon
 
 </a>
 
-<a href="https://www.flipkart.com/" target="_blank" class="flipkart">
-
-Buy on Flipkart
-
-</a>
-
 </div>
 
 </div>
 
 </div>
 
+</section>
+<section class="pg-checkout-wrapper">
+    <div class="pg-order-card">
+        
+        <div class="pg-card-header">
+            <div class="pg-brand-badge">
+                🌿 100% Pure Organic Ghee
+            </div>
+            <h2 class="pg-main-title">Direct <span>WhatsApp Order</span></h2>
+            <p class="pg-sub-title">Apna order details bharein aur 1-Click mein WhatsApp par order confirm karein.</p>
+        </div>
+
+        <form id="pgCheckoutForm" onsubmit="return false;">
+            
+            <div class="pg-section-block">
+                <label class="pg-section-label">
+                    <span class="pg-step-num">1</span> Pack Size Chunein:
+                </label>
+
+                <div class="pg-pack-options">
+                    <label class="pg-pack-card" onclick="selectPack(this, 700, '500g Jar')">
+                        <input type="radio" name="pack_size" value="500g Jar">
+                        <div class="pg-pack-info">
+                            <span class="pg-pack-name">500 Gram Jar</span>
+                            <span class="pg-pack-desc">Glass Jar Packing</span>
+                        </div>
+                        <div class="pg-pack-price">₹700</div>
+                    </label>
+
+                    <label class="pg-pack-card active" onclick="selectPack(this, 1400, '1 Litre Jar')">
+                        <input type="radio" name="pack_size" value="1 Litre Jar" checked>
+                        <span class="pg-popular-tag">MOST POPULAR</span>
+                        <div class="pg-pack-info">
+                            <span class="pg-pack-name">1 Litre Family Jar</span>
+                            <span class="pg-pack-desc">Pure A2 Cow Milk</span>
+                        </div>
+                        <div class="pg-pack-price">₹1,400</div>
+                    </label>>
+                        
+            </div>
+
+            <div class="pg-section-block">
+                <label class="pg-section-label">
+                    <span class="pg-step-num">2</span> Quantity (Kitne Pack?):
+                </label>
+
+                <div class="pg-qty-box">
+                    <button type="button" class="pg-qty-btn" onclick="updateQuantity(-1)">-</button>
+                    <input type="number" id="pgQuantity" value="1" min="1" max="20" readonly>
+                    <button type="button" class="pg-qty-btn" onclick="updateQuantity(1)">+</button>
+                </div>
+            </div>
+
+            <div class="pg-section-block">
+                <label class="pg-section-label">
+                    <span class="pg-step-num">3</span> Delivery Details:
+                </label>
+
+                <div class="pg-input-group">
+                    <input type="text" id="pgCustomerName" placeholder="Aapka Poora Naam (Full Name)" required>
+                </div>
+
+                <div class="pg-input-group">
+                    <input type="tel" id="pgCustomerPhone" placeholder="WhatsApp / Mobile Number" required maxlength="10">
+                </div>
+
+                <div class="pg-input-group">
+                    <textarea id="pgCustomerAddress" rows="3" placeholder="Pura Pata (Ghar no., Galli, City, Pincode)" required></textarea>
+                </div>
+
+                <div class="pg-input-group">
+                    <select id="pgPaymentMethod">
+                        <option value="Cash on Delivery (COD)">Cash on Delivery (Ghar Pohnchne Par Pay Karein)</option>
+                        <option value="UPI / Online Payment">UPI / Online Pay</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pg-summary-card">
+                <div class="pg-summary-row">
+                    <span>Selected Pack:</span>
+                    <strong id="pgSummaryPack">1 Litre Jar (1x)</strong>
+                </div>
+                <div class="pg-summary-row">
+                    <span>Delivery Fee:</span>
+                    <span style="color: #1DA851; font-weight: bold;">FREE Shipping</span>
+                </div>
+                <div class="pg-divider"></div>
+                <div class="pg-summary-row pg-total-row">
+                    <span>Total Payable Amount:</span>
+                    <strong id="pgSummaryTotal">₹1,400</strong>
+                </div>
+
+                <button type="button" class="pg-wa-submit-btn" onclick="processWhatsAppOrder()">
+                    📲 Confirm & Send Order on WhatsApp
+                </button>
+            </div>
+
+        </form>
+    </div>
 </section>
 
 <!-- ================= BENEFITS ================= -->
@@ -212,11 +301,12 @@ Buy on Flipkart
 <div class="footer-support">
 <h3>Customer Support</h3>
 
-<p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+<p><i class="fa-solid fa-phone"></i> +91 9801128374 
+                                      , 8863068017</p>
 
 <p><i class="fa-solid fa-envelope"></i> support@pureghee.com</p>
 
-<p><i class="fa-solid fa-location-dot"></i> Patna, Bihar, India</p>
+<p><i class="fa-solid fa-location-dot"></i> Ara, Bihar, India</p>
 
 <p><i class="fa-regular fa-clock"></i> Mon - Sat : 9:00 AM - 7:00 PM</p>
 
@@ -226,13 +316,13 @@ Buy on Flipkart
 
 <h3>Follow Us</h3>
 
-<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.facebook.com/share/19QwqhzK8x/"><i class="fab fa-facebook-f"></i></a>
 
-<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="https://www.instagram.com/satyamorganicghee00?igsh=ZXNoMm5uYWFmeXg="><i class="fab fa-instagram"></i></a>
 
-<a href="#"><i class="fab fa-youtube"></i></a>
 
-<a href="#"><i class="fab fa-whatsapp"></i></a>
+
+<a href="c:\Users\mohit\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\89A9E36E4F42AEE8ED56A759640A8AA25ECE40D6\transfers\2026-33\WhatsApp Image 2026-08-13 at 20.25.19.jpeg"><i class="fab fa-whatsapp"></i></a>
 
 </div>
 

@@ -83,39 +83,6 @@ document.querySelectorAll("section").forEach(sec => {
 });
 
 // ===============================
-// Contact Form Validation
-// ===============================
-
-const form = document.querySelector("form");
-
-if(form){
-
-form.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-const name = form.querySelector("input[type='text']").value.trim();
-const email = form.querySelector("input[type='email']").value.trim();
-const phone = form.querySelector("input[type='tel']").value.trim();
-const message = form.querySelector("textarea").value.trim();
-
-if(name==="" || email==="" || phone==="" || message===""){
-
-alert("Please fill all fields.");
-
-return;
-
-}
-
-alert("Thank You! Your message has been sent.");
-
-form.reset();
-
-});
-
-}
-
-// ===============================
 // Back To Top Button
 // ===============================
 
@@ -182,3 +149,99 @@ window.onload = function(){
 console.log("Welcome to Pure Ghee Website");
 
 };
+// Global Variables
+let selectedPackPrice = 1200; // Default 1 Litre price
+let selectedPackName = "1 Litre Jar";
+let currentQuantity = 1;
+
+// ⚠️ AAPNA WHATSAPP NUMBER YAHAN DALEIN (Country code 91 ke sath, bina + sign ke)
+const BUSINESS_WHATSAPP_NUMBER = "917209956974"; 
+
+// Pack Selection Handler
+function selectPack(element, price, packName) {
+    const cards = document.querySelectorAll('.pg-pack-card');
+    cards.forEach(card => card.classList.remove('active'));
+
+    element.classList.add('active');
+
+    const radio = element.querySelector('input[type="radio"]');
+    if (radio) radio.checked = true;
+
+    selectedPackPrice = price;
+    selectedPackName = packName;
+
+    calculateTotal();
+}
+
+// Quantity Plus/Minus Handler
+function updateQuantity(change) {
+    const qtyInput = document.getElementById('pgQuantity');
+    let val = parseInt(qtyInput.value) + change;
+
+    if (val >= 1 && val <= 20) {
+        currentQuantity = val;
+        qtyInput.value = currentQuantity;
+        calculateTotal();
+    }
+}
+
+// Calculate Price Function
+function calculateTotal() {
+    const totalAmount = selectedPackPrice * currentQuantity;
+    document.getElementById('pgSummaryPack').innerText = `${selectedPackName} (${currentQuantity}x)`;
+    document.getElementById('pgSummaryTotal').innerText = `₹${totalAmount.toLocaleString('en-IN')}`;
+}
+
+// WhatsApp Process Function
+function processWhatsAppOrder() {
+    const nameInput = document.getElementById('pgCustomerName').value.trim();
+    const phoneInput = document.getElementById('pgCustomerPhone').value.trim();
+    const addressInput = document.getElementById('pgCustomerAddress').value.trim();
+    const paymentMethod = document.getElementById('pgPaymentMethod').value;
+
+    // Form Validation
+    if (nameInput === "") {
+        alert("Kripya apna Poora Naam (Full Name) bharein!");
+        document.getElementById('pgCustomerName').focus();
+        return;
+    }
+
+    if (phoneInput === "" || phoneInput.length < 10) {
+        alert("Kripya sahi 10-digit Mobile / WhatsApp Number bharein!");
+        document.getElementById('pgCustomerPhone').focus();
+        return;
+    }
+
+    if (addressInput === "") {
+        alert("Kripya apna Poora Pata (Delivery Address) bharein!");
+        document.getElementById('pgCustomerAddress').focus();
+        return;
+    }
+
+    const grandTotal = selectedPackPrice * currentQuantity;
+    const now = new Date();
+    const orderTime = now.toLocaleDateString('en-IN') + ' | ' + now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
+    // Formatted WhatsApp Message
+    let waMessage = `🛒 *NEW GHEE ORDER RECEIVED* 🛒\n`;
+    waMessage += `___________________________________\n\n`;
+    waMessage += `👤 *Customer Name:* ${nameInput}\n`;
+    waMessage += `📞 *Contact Number:* ${phoneInput}\n\n`;
+    waMessage += `🧈 *ORDER BREAKDOWN:*\n`;
+    waMessage += `• Item: *${selectedPackName}*\n`;
+    waMessage += `• Quantity: *${currentQuantity} Pack(s)*\n`;
+    waMessage += `• Price Per Unit: ₹${selectedPackPrice}\n`;
+    waMessage += `• Total Amount: *₹${grandTotal.toLocaleString('en-IN')}*\n\n`;
+    waMessage += `💳 *Payment Mode:* ${paymentMethod}\n`;
+    waMessage += `🚚 *Delivery Status:* FREE Express Shipping\n\n`;
+    waMessage += `📍 *DELIVERY ADDRESS:*\n${addressInput}\n`;
+    waMessage += `___________________________________\n`;
+    waMessage += `⏰ *Order Time:* ${orderTime}\n\n`;
+    waMessage += `Kripya mera order confirm karein aur delivery timeline batayein! 🙏`;
+
+    const encodedUrlMessage = encodeURIComponent(waMessage);
+    const finalWhatsAppLink = `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encodedUrlMessage}`;
+
+    window.open(finalWhatsAppLink, '_blank');
+}
+
