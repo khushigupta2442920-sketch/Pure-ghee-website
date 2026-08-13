@@ -488,3 +488,274 @@ nav ul{
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
+/* ==============================================
+   2. CSS STYLES (Apni main style.css ke aakhir me paste karein)
+   ============================================== */
+
+.pg-checkout-wrapper {
+    width: 100%;
+    max-width: 1080px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.pg-checkout-wrapper *, 
+.pg-checkout-wrapper *::before, 
+.pg-checkout-wrapper *::after {
+    box-sizing: border-box;
+}
+
+.pg-order-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px 25px;
+    border: 1px solid #E6DCCE;
+}
+
+.pg-card-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.pg-brand-badge {
+    display: inline-block;
+    background: #F9F3EA;
+    color: #8C6A10;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 15px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.pg-main-title {
+    font-size: 28px;
+    color: #2A221E;
+    margin: 0;
+}
+
+.pg-main-title span {
+    color: #C59B27;
+}
+
+.pg-sub-title {
+    font-size: 14px;
+    color: #6E655F;
+    margin-top: 5px;
+}
+
+.pg-section-block {
+    margin-bottom: 20px;
+}
+
+.pg-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #2A221E;
+    margin-bottom: 12px;
+}
+
+.pg-step-num {
+    background: #C59B27;
+    color: #FFF;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.pg-pack-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pg-pack-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border: 2px solid #E6DCCE;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: #FAFAFA;
+}
+
+.pg-pack-card input[type="radio"] {
+    display: none;
+}
+
+.pg-pack-card:hover {
+    border-color: #C59B27;
+    background: #FFF;
+}
+
+.pg-pack-card.active {
+    border-color: #C59B27;
+    background: #F9F3EA;
+}
+
+.pg-pack-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-pack-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: #2A221E;
+}
+
+.pg-pack-desc {
+    font-size: 12px;
+    color: #6E655F;
+}
+
+.pg-pack-price {
+    font-weight: 800;
+    font-size: 17px;
+    color: #8C6A10;
+}
+
+.pg-popular-tag {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: #8C6A10;
+    color: #FFF;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.pg-qty-box {
+    display: inline-flex;
+    align-items: center;
+    background: #F9F3EA;
+    border: 1px solid #E6DCCE;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.pg-qty-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: #FFF;
+    border-radius: 6px;
+    color: #2A221E;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: 0.2s;
+}
+
+.pg-qty-btn:hover {
+    background: #C59B27;
+    color: #FFF;
+}
+
+.pg-qty-box input {
+    width: 45px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 16px;
+    color: #2A221E;
+}
+
+.pg-input-group {
+    margin-bottom: 12px;
+}
+
+.pg-input-group input,
+.pg-input-group textarea,
+.pg-input-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #E6DCCE;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    background: #FFF;
+    transition: 0.25s;
+}
+
+.pg-input-group textarea {
+    resize: vertical;
+}
+
+.pg-input-group input:focus,
+.pg-input-group textarea:focus,
+.pg-input-group select:focus {
+    border-color: #C59B27;
+    box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+}
+
+.pg-summary-card {
+    background: #FAF8F5;
+    border: 1px solid #E6DCCE;
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 15px;
+}
+
+.pg-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #6E655F;
+    margin-bottom: 8px;
+}
+
+.pg-divider {
+    height: 1px;
+    background: #E6DCCE;
+    margin: 10px 0;
+}
+
+.pg-total-row {
+    font-size: 15px;
+    color: #2A221E;
+    font-weight: 700;
+}
+
+.pg-total-row strong {
+    font-size: 20px;
+    color: #8C6A10;
+}
+
+.pg-wa-submit-btn {
+    width: 100%;
+    background: #25D366;
+    color: #FFF;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 12px;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.pg-wa-submit-btn:hover {
+    background: #1DA851;
+    transform: translateY(-2px);
+}
+
+
