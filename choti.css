@@ -9,6 +9,7 @@ Google Font
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
     scroll-behavior:smooth;
+
 }
 
 body{
@@ -91,7 +92,7 @@ Hero
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:50px;
+    gap:25px;
     padding-top:120px;
     background:linear-gradient(135deg,#fff8e6,#ffe4a3);
     background-image: url('https://thumbs.dreamstime.com/b/ghee-oil-against-background-grazing-cows-selective-focus-nature-350918995.jpg');
@@ -391,7 +392,7 @@ footer hr{
     padding: 30px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Halka sa shadow */
-    width: 200px;
+    width: 150px;
     transition: transform 0.3s;
     border-top: 4px solid #f5b041; /* Ghee jaisa golden border upar ki taraf */
 }
@@ -757,5 +758,24 @@ nav ul{
     background: #1DA851;
     transform: translateY(-2px);
 }
+/* Mobile view ke liye About section ka layout */
+@media (max-width: 768px) {
+    .about-container {
+        display: flex;
+        flex-direction: column; /* Isse content ek ke niche ek aayega */
+        align-items: center;    /* Content center mein aayega */
+    }
 
+    .about-image {
+        order: -1; /* Yeh photo ko text ke upar bhej dega */
+        margin-bottom: 20px; /* Photo aur text ke beech mein thodi jagah banayega */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
+    .about-text {
+        text-align: center; /* Text ko center mein dikhane ke liye */
+        width: 100%;
+    }
+}
